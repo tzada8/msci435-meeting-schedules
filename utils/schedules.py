@@ -109,7 +109,7 @@ def setup_table_schedule(person_title, availability):
     return table_data
 
 # Save schedules as images.
-def save_group_schedules(group_people, optimal_sol, group_unavailability):
+def save_group_schedules(group_people, optimal_sol, group_unavailability, prefix_path):
     for i, person in enumerate(group_people):
         person_title = f"Chair {person}" if i < 5 else f"Member {person}"
         person_availability = person_availability_mapping(optimal_sol, i, group_unavailability)
@@ -121,5 +121,5 @@ def save_group_schedules(group_people, optimal_sol, group_unavailability):
         fig, ax = plt.subplots(figsize=(8, 6))
         ax.axis("off")
         table = ax.table(cellText=text_data, cellColours=colour_data, loc="center", cellLoc="center")
-        plt.savefig(f"../data/schedules/{person_title}.png", bbox_inches="tight")
+        plt.savefig(f"{prefix_path}/{person_title}.png", bbox_inches="tight")
         plt.close()
