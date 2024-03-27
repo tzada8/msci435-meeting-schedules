@@ -47,8 +47,14 @@ members_est_unavailability = [
 
 group1_chairs = [1, 5, 7, 2, 3]
 group1_members = [22, 6, 24, 26, 23, 8, 29, 1, 2, 3, 4, 5, 9, 10, 12]
-group1_est_unavailability = [*[chairs_est_unavailability[i-1] for i in group1_chairs], *[members_est_unavailability[i-1] for i in group1_members]]
-
 group2_chairs = [4, 6, 8, 9, 10]
 group2_members = [13, 14, 15, 16, 17, 18, 19, 20, 25, 27, 30, 7, 11, 21, 28]
-group2_est_unavailability = [*[chairs_est_unavailability[i-1] for i in group2_chairs], *[members_est_unavailability[i-1] for i in group2_members]]
+
+def form_groups(chair_unavailability, member_unavailability):
+    group1_unavailability = [*[chair_unavailability[i-1] for i in group1_chairs], *[member_unavailability[i-1] for i in group1_members]]
+    group2_unavailability = [*[chair_unavailability[i-1] for i in group2_chairs], *[member_unavailability[i-1] for i in group2_members]]
+    return [group1_unavailability, group2_unavailability]
+
+main_groups = form_groups(chairs_est_unavailability, members_est_unavailability)
+group1_est_unavailability = main_groups[0]
+group2_est_unavailability = main_groups[1]

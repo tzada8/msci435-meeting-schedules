@@ -2,7 +2,7 @@ import itertools
 
 import utils_functions
 
-def generic_column_generation():
+def generic_column_generation(member_to_chair_ratio):
     num_people = 20
     combinations = list(itertools.product([0, 1], repeat=num_people))
 
@@ -10,7 +10,6 @@ def generic_column_generation():
     max_people_in_meetings = 12
     total_sums_allowed = [0, 6, 12]
     members_i_start = 5  # Corresponds to member 1 in list (6th element).
-    member_to_chair_ratio = 5  # 5 members per 1 chair.
 
     # Filters Applied:
     #   1. At most 12 people can be in meetings at a time for each subgroup.
