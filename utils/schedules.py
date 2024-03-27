@@ -49,10 +49,8 @@ def display_master_schedule(rooms_per_timeslot, saved_file_path):
             day = int(i/4)
             room = i%4+1
             timeslot = (j+1) + (day*rows)
-            style = "bx"
-            if timeslot in rooms_per_timeslot and rooms_per_timeslot[timeslot] >= room:
-                style = "bo"
-            plt.plot(i, j, style)
+            style = "bo" if timeslot in rooms_per_timeslot and rooms_per_timeslot[timeslot] >= room else "bx"
+            plt.plot(i, rows - 1 - j, style)
 
     # Group columns into subsets of 4 and draw lines to separate the groups
     for col in range(4, cols, 4):
