@@ -50,12 +50,28 @@ group1_members = [22, 6, 24, 26, 23, 8, 29, 1, 2, 3, 4, 5, 9, 10, 12]
 group2_chairs = [4, 6, 8, 9, 10]
 group2_members = [13, 14, 15, 16, 17, 18, 19, 20, 25, 27, 30, 7, 11, 21, 28]
 
-def form_groups(chair_unavailability, member_unavailability):
-    group1_unavailability = [*[chair_unavailability[i-1] for i in group1_chairs], *[member_unavailability[i-1] for i in group1_members]]
-    group2_unavailability = [*[chair_unavailability[i-1] for i in group2_chairs], *[member_unavailability[i-1] for i in group2_members]]
+def form_groups(
+        chair_unavailability,
+        member_unavailability,
+        g1_chairs = group1_chairs,
+        g1_members = group1_members,
+        g2_chairs = group2_chairs,
+        g2_members = group2_members,
+    ):
+    group1_unavailability = [*[chair_unavailability[i-1] for i in g1_chairs], *[member_unavailability[i-1] for i in g1_members]]
+    group2_unavailability = [*[chair_unavailability[i-1] for i in g2_chairs], *[member_unavailability[i-1] for i in g2_members]]
     return [group1_unavailability, group2_unavailability]
 
 all_group_est_unavailability = [*chairs_est_unavailability, *members_est_unavailability]
 main_groups = form_groups(chairs_est_unavailability, members_est_unavailability)
 group1_est_unavailability = main_groups[0]
 group2_est_unavailability = main_groups[1]
+
+optimal_group1_chairs = [2, 7, 8, 9, 10]
+optimal_group1_members = [6, 7, 8, 9, 10, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+optimal_group2_chairs = [1, 3, 4, 5, 6]
+optimal_group2_members = [1, 2, 3, 4, 5, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+optimal_main_groups = form_groups(chairs_est_unavailability, members_est_unavailability, optimal_group1_chairs, optimal_group1_members, optimal_group2_chairs, optimal_group2_members)
+optimal_group1_unavailability = optimal_main_groups[0]
+optimal_group2_unavailability = optimal_main_groups[1]
