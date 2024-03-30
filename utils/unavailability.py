@@ -55,6 +55,7 @@ def form_groups(chair_unavailability, member_unavailability):
     group2_unavailability = [*[chair_unavailability[i-1] for i in group2_chairs], *[member_unavailability[i-1] for i in group2_members]]
     return [group1_unavailability, group2_unavailability]
 
+all_group_est_unavailability = [*chairs_est_unavailability, *members_est_unavailability]
 main_groups = form_groups(chairs_est_unavailability, members_est_unavailability)
 group1_est_unavailability = main_groups[0]
 group2_est_unavailability = main_groups[1]
