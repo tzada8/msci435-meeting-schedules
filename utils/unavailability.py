@@ -67,10 +67,10 @@ main_groups = form_groups(chairs_est_unavailability, members_est_unavailability)
 group1_est_unavailability = main_groups[0]
 group2_est_unavailability = main_groups[1]
 
-optimal_group1_chairs = [2, 7, 8, 9, 10]
-optimal_group1_members = [6, 7, 8, 9, 10, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-optimal_group2_chairs = [1, 3, 4, 5, 6]
-optimal_group2_members = [1, 2, 3, 4, 5, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+optimal_group1_chairs = [4, 6, 8, 9, 10]
+optimal_group1_members = [3, 4, 7, 8, 9, 10, 11, 15, 17, 18, 21, 27, 28, 29, 30]
+optimal_group2_chairs = [1, 2, 3, 5, 7]
+optimal_group2_members = [1, 2, 5, 6, 12, 13, 14, 16, 19, 20, 22, 23, 24, 25, 26]
 
 optimal_main_groups = form_groups(chairs_est_unavailability, members_est_unavailability, optimal_group1_chairs, optimal_group1_members, optimal_group2_chairs, optimal_group2_members)
 optimal_group1_unavailability = optimal_main_groups[0]
